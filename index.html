@@ -1,0 +1,51 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Accountancy App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <!-- Same HTML content as before, but remove inline <script> -->
+  <div class="app-container">
+    <h1>💼 Accountancy App</h1>
+    <div class="card input-card">
+      <div class="form-row">
+        <select id="type">
+          <option value="Income">Income</option>
+          <option value="Expense">Expense</option>
+        </select>
+        <input type="text" id="category" placeholder="Category" />
+        <input type="number" id="amount" placeholder="Amount" />
+        <input type="text" id="description" placeholder="Description" />
+      </div>
+      <div class="form-buttons">
+        <button class="btn add-btn" onclick="addTransaction()">Add Transaction</button>
+        <button class="btn delete-btn" onclick="deleteSelected()">Delete Selected</button>
+      </div>
+    </div>
+
+    <div class="card balance-display">
+      <span id="balance">Balance: ₹ 0.00</span>
+    </div>
+
+    <div class="card table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody id="transactionTable"></tbody>
+      </table>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
